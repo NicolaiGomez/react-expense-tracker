@@ -1,20 +1,13 @@
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
-import { useState } from "react";
 
 const NewExpense = (props) => {
-  //   const [expenseData, setExpenseData] = useState({});
   const saveExpenseDataHandler = (enteredExpenseData) => {
-    // setExpenseData({
-    //   ...enteredExpenseData,
-    //   id: Math.floor(Math.random() * (100 - 1 + 1) + 1).toString(),
-    // });
     const expenseData = {
+      id: "e" + Math.floor(Math.random() * (100 - 1 + 1) + 1).toString(),
       ...enteredExpenseData,
-      id: Math.floor(Math.random() * (100 - 1 + 1) + 1).toString(),
     };
 
-    console.log(expenseData);
     props.addExpenseData(expenseData);
   };
 

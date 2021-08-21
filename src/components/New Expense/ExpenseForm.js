@@ -7,7 +7,7 @@ const ExpenseForm = (props) => {
   const [dateInput, setDateInput] = useState("");
 
   const amountChangeHandler = (event) => {
-    setAmountInput(event.target.value);
+    setAmountInput(parseInt(event.target.value));
   };
   const dateChangeHandler = (event) => {
     setDateInput(event.target.value);
@@ -26,8 +26,6 @@ const ExpenseForm = (props) => {
       amount: amountInput,
       date: new Date(dateInput),
     };
-
-    console.log(expenseData);
 
     props.onSaveExpenseData(expenseData);
 
@@ -51,7 +49,7 @@ const ExpenseForm = (props) => {
           <label htmlFor="amount">Amount</label>
           <input
             id="amount"
-            type="number"
+            type="integer"
             min="0.01"
             step="0.01"
             value={amountInput}
