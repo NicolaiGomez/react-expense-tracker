@@ -21,6 +21,7 @@ const ExpenseForm = (props) => {
     // console.log(input.value, amount.value, date.value); //rather than two way binding, I feel like you could just reset the form and
     //destructure the event.target array. No real need to hold form value in state. event.target.reset();
     event.preventDefault();
+    props.showAddNewExpense();
     const expenseData = {
       title: titleInput,
       amount: amountInput,
@@ -43,6 +44,7 @@ const ExpenseForm = (props) => {
             type="text"
             onChange={titleChangeHandler}
             value={titleInput}
+            required
           />
         </div>
         <div className="new-expense__control">
@@ -54,6 +56,7 @@ const ExpenseForm = (props) => {
             step="0.01"
             value={amountInput}
             onChange={amountChangeHandler}
+            required
           />
         </div>
         <div className="new-expense__control">
@@ -65,9 +68,13 @@ const ExpenseForm = (props) => {
             max="2022-12-31"
             value={dateInput}
             onChange={dateChangeHandler}
+            required
           />
         </div>
         <div className="new-expense__actions">
+          <button type="button" onClick={props.showAddNewExpense}>
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>
